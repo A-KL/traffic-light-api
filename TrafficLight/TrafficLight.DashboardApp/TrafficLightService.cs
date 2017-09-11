@@ -17,7 +17,7 @@
         private const int GreenPin = 10;
         private const int YellowPin = 10;
 
-        public TraficLightService()
+        public TrafficLightService()
         {
             var gpio = GpioController.GetDefault();
 

@@ -6,9 +6,9 @@
     [RoutePrefix("api/{controller}")]
     public class LightsController : ApiController
     {
-        private readonly ITraficLightService service;
+        private readonly ITrafficLightService service;
 
-        public LightsController(ITraficLightService service)
+        public LightsController(ITrafficLightService service)
         {
             this.service = service;
         }
