@@ -1,0 +1,9 @@
+{
+  "name": "traffic-light.api",
+  "version": "0.0.0",
+  "description": "TrafficLight.Api",
+  "main": "server.js",
+  "author": {
+    "name": "Admin"
+  }
+}
