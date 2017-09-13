@@ -14,17 +14,29 @@
         }
 
         [HttpGet, Route("status")]
-        public LightsStatus Get()
+        public LightsStatus GetAll()
         {
             return this.service.ToStatus();
         }
 
+        [HttpGet, Route("status/{channel}")]
+        public void Get(string channel, bool state)
+        {
+            this.service[channel] = state;
+        }
+        
         [HttpPost, Route("status")]
-        public void Post(LightsStatus status)
+        public void PostAll(LightsStatus status)
         {
             this.service["red"] = status.Red;
             this.service["yellow"] = status.Yellow;
             this.service["green"] = status.Green;
+        }
+
+        [HttpPost, Route("status/{channel}")]
+        public void Post(string channel, bool state)
+        {
+            this.service[channel] = state;
         }
     }
 }
