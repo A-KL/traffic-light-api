@@ -8,6 +8,11 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Image Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Source="Assets/Albelli-logo.png" Stretch="None"/>
+        <TextBlock Name="IpAddress" FontSize="58" HorizontalAlignment="Center" Foreground="Coral" VerticalAlignment="Center" Grid.Row="1" Text="0.0.0.0"/>
     </Grid>
 </Page>

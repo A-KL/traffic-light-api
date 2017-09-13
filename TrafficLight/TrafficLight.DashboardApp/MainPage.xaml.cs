@@ -23,7 +23,7 @@
 
             var container = new UnityContainer();
 
-           container.RegisterType<ITrafficLightService, TrafficLightService>(new HierarchicalLifetimeManager());
+            container.RegisterType<ITrafficLightService, TrafficLightService>(new HierarchicalLifetimeManager());
 
 
             var assembly = this.GetType().GetTypeInfo().Assembly;
@@ -38,7 +38,13 @@
 
             // Http
             var server = new WebService(settings);
-            server.Start(IPAddress.Parse(GetLocalIp()), 60055);
+
+            var port = 60055;
+            var ip = GetLocalIp();
+
+            server.Start(IPAddress.Parse(ip), port);
+
+            this.IpAddress.Text = ip + ":" + port;
         }
 
         private static string GetLocalIp()

@@ -13,9 +13,9 @@
 
     public class TrafficLightService : ITrafficLightService
     {
-        private const int RedPin = 10;
-        private const int GreenPin = 10;
-        private const int YellowPin = 10;
+        private const int RedPin = 2;
+        private const int YellowPin = 3;
+        private const int GreenPin = 4;
 
         public TrafficLightService()
         {
@@ -25,9 +25,13 @@
             var green = gpio.OpenPin(GreenPin);
             var yellow = gpio.OpenPin(YellowPin);
 
-            red.SetDriveMode(GpioPinDriveMode.InputPullDown);
-            green.SetDriveMode(GpioPinDriveMode.InputPullDown);
-            yellow.SetDriveMode(GpioPinDriveMode.InputPullDown);
+            red.SetDriveMode(GpioPinDriveMode.Output);
+            green.SetDriveMode(GpioPinDriveMode.Output);
+            yellow.SetDriveMode(GpioPinDriveMode.Output);
+
+            red.Write(GpioPinValue.Low);
+            green.Write(GpioPinValue.Low);
+            yellow.Write(GpioPinValue.Low);
 
             this.state = new Dictionary<string, GpioPin>
             {
